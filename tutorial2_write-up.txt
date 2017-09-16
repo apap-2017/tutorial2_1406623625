@@ -1,0 +1,48 @@
+Latihan Project Hello World
+
+1. 	Compile tidak error, Namun saat pengguna mengakses localhost:8080/hello maka akan terjadi whitelabel error 
+	dimana pada controller tidak terdapat RequestMapping ke /hello sehingga tidak ada halaman view juga yang dituju
+
+2.	Compile tidak error, ya page hello yang sebelumnya masih muncul karena nama method tidak mempengaruhi karena
+	routing sudah dilakukan di RequestMapping.
+
+3. 	Compile tidak error, namun saat pengguna mengakses localhost:8080/hello maka terjadi error karena pada method tersebut
+	halaman view yang direturn adalah hello123 sementara tidak ada halaman view hello123.html dalam templates
+
+	String yang direturn menandakan halaman view (html)
+
+
+Latihan Request Parameter
+
+1. 	Hasilnya sama saja ketika anotasi RequestMapping berupa "/greeting" dan address yang diakses adalah localhost:9090/greeting?name=chanek/
+	Hal tersebut terjadi karena address yang diakses perubahannya sama seperti di anotasi requestmappingnya, sehingga routingnya tetap menuju alamat yang sama
+
+2. a. 	Error, karena parameter yang direquest berupa attribute name tidak diperoleh dari url address sehingga nilainya kosong sementara attribute tersebut tidak boleh kosong
+   b. 	Tidak error, karena required false menyebabkan attribute name tidak harus diisi pada url address namun nilainya dianggap null sehingga stringnya null ketika dicetak juga
+
+3. 	Tidak error, apabila attribute null (tidak diketik dalam url address) maka nilainya dianggap "dunia" karena defaultValuenya adalah string berupa "dunia"
+
+4. 	Karena tulisan "Sapaan untuk user" di dalam tag <p></p> ditiban oleh thymeleaf text yang berisi Selamat datang <Name>
+
+
+Path Variable
+Hasil dari Langkah 2 : 	Selamat Datang chanek! hal tersebut terjadi karena variable name pada requestmapping 
+			dan pathvariable dikirim ke ${Name}yang berada pada greeting.html melalui model
+
+
+Latihan Path Variable
+
+1. 	Selamat datang dunia! Hal tersebut terjadi karena /greeting memanggil method greeting yang bila attribute name di urlnya kosong maka value defaultnya adalah "dunia"
+
+2.	Error karena terjadi bentrok di routing, sudah terlebih dahulu ada yang RequestMappingnya ke route /greeting sehingga jika ada 2 maka bentrok
+
+3. 	Selamat datang chanek!
+
+
+NOTE: 	PADA TUTORIAL YANG SAYA LAKUKAN, SAYA TIDAK MENGGUNAKAN DevTools DIKARENAKAN
+	SELALU TERJADI ERROR PADA POM.XML, KEMUNGKINAN HAL TERSEBUT TERJADI KARENA
+	THYMELEAF PADA PROJECT YANG SAYA BUAT BERADA PADA INTERNET BUKAN LOKAL (PENDAPAT SAYA)
+
+
+
+
